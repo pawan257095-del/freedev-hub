@@ -41,7 +41,7 @@ for(const c of categories){
 // Add crawlable category links to the main page so search engines can discover every landing page.
 const homePath=path.join(root,'index.html');
 let homeHtml=fs.readFileSync(homePath,'utf8');
-homeHtml=homeHtml.replace(/<!-- FreeDev Hub GA4 -->[\\s\\S]*?<\\/script>/,'');
+homeHtml=homeHtml.replace(/<!-- FreeDev Hub GA4 -->[\s\S]*?<\/script>\s*<script>[\s\S]*?<\/script>/,'');
 if(gaTag) homeHtml=homeHtml.replace('</head>',gaTag+'</head>');
 if(base){
  homeHtml=homeHtml.replace(/<meta name="robots" content="[^"]*">/i,'<meta name="robots" content="index,follow">');
