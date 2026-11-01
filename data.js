@@ -2364,6 +2364,12 @@ window.FREEDEV_ITEMS = [
     "category": "CI and CD"
   },
   {
+    "name": "agent-qa",
+    "url": "https://vostride.com",
+    "description": "Natural-language web, Android and iOS QA with memidex persistent memory and evidence-gated self-improvement. Free local CLI; Node.js 24+ required. Model and optional device services cost extra; FSL-1.1-ALv2 restricts competing commercial use.",
+    "category": "Testing"
+  },
+  {
     "name": "Appetize",
     "url": "https://appetize.io",
     "description": "Test your Android & iOS apps on this Cloud Based Android Phone / Tablets emulator and iPhone/iPad simulators directly in your browser. The free tier includes two concurrent session with 30 minutes of usage per month. No limit on app size.",
