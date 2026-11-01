@@ -1,0 +1,10 @@
+{
+  "name": "freedev-hub",
+  "version": "5.1.0",
+  "private": true,
+  "scripts": {
+    "build:seo": "node scripts/generate-seo.js",
+    "serve": "npx http-server -p 5500",
+    "check": "node --check app.js && node --check scripts/generate-seo.js"
+  }
+}
