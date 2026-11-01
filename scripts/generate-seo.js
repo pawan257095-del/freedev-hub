@@ -36,6 +36,12 @@ for(const c of categories){
 // Add crawlable category links to the main page so search engines can discover every landing page.
 const homePath=path.join(root,'index.html');
 let homeHtml=fs.readFileSync(homePath,'utf8');
+if(base){
+ homeHtml=homeHtml.replace(/<meta name="robots" content="[^"]*">/i,'<meta name="robots" content="index,follow">');
+ if(!/<link rel="canonical"/i.test(homeHtml)) homeHtml=homeHtml.replace('</head>',`<link rel="canonical" href="${base}/"></head>`);
+}else{
+ homeHtml=homeHtml.replace(/<meta name="robots" content="[^"]*">/i,'<meta name="robots" content="noindex,follow">');
+}
 const staticNav=`<section class="seo-category-index" aria-labelledby="seo-category-heading"><h2 id="seo-category-heading">Browse developer resources by category</h2><p>Explore the directory through these category guides.</p><nav aria-label="Developer resource categories">${categories.map(c=>`<a href="categories/${slug(c)}/index.html">${esc(c)}</a>`).join('')}</nav></section>`;
 if(!homeHtml.includes('seo-category-index')) homeHtml=homeHtml.replace('</main>',staticNav+'</main>');
 fs.writeFileSync(homePath,homeHtml);
