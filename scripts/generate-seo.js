@@ -41,5 +41,5 @@ if(!homeHtml.includes('seo-category-index')) homeHtml=homeHtml.replace('</main>'
 fs.writeFileSync(homePath,homeHtml);
 const sitemap=`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u=>`<url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(root,'sitemap.xml'),sitemap);
-fs.writeFileSync(path.join(root,'robots.txt'),`User-agent: *\nAllow: /\n${base ? `Sitemap: ${base}/sitemap.xml\\n` : ''}`);
+fs.writeFileSync(path.join(root,'robots.txt'),`User-agent: *\nAllow: /\n${base ? `Sitemap: ${base}/sitemap.xml\n` : ''}`);
 console.log(JSON.stringify({items:items.length,categories:categories.length,sitemapUrls:urls.length,siteUrlConfigured:Boolean(base),categoryIndexing:base?'enabled':'disabled-until-domain-configured'}));
